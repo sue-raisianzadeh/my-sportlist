@@ -1,5 +1,5 @@
 {
-  "name": "atom-building",
+  "name": "sport-list",
   "private": true,
   "version": "0.1.0",
   "scripts": {
@@ -60,7 +60,7 @@
       "bundle.js"
     ]
   },
-  "description": "This is a website for a Smart Panel Homes Ltd company, using reactjs, bootstrap, squlit3, css",
+  "description": "This is a website about sport-list, using reactjs, css",
   "main": "server/server.js",
   "keywords": [],
   "author": "",

@@ -1,2 +1,2 @@
-# Smart Panel Homes Ltd 
+# sport-list 
 this project is built with reactjs, CSS and Bootstrap  
