@@ -1,11 +1,11 @@
 // App.jsx
 import React, { useEffect, useContext } from 'react'
-import { SportProvider } from './components/contexts/SportContext'
+import { SportContext } from './components/contexts/SportContext'
 import SportsList from './components/SportList'
 import { ContentRepository } from './components/ContentRepository'
 
 const App = () => {
-  const { setSports } = useContext(SportProvider)
+  const { setSports } = useContext(SportContext)
 
   useEffect(() => {
     const fetchSports = async () => {

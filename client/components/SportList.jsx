@@ -1,4 +1,4 @@
-// SportsList.js
+// SportList.jsx
 import React, { useContext } from 'react'
 import Sport from './Sport'
 import { SportContext } from './contexts/SportContext'

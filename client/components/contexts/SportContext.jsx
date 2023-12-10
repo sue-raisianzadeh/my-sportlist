@@ -1,5 +1,5 @@
-// SportContext.js
-import { createContext, useState } from 'react'
+// SportContext.jsx
+import React, { createContext, useState } from 'react'
 
 export const SportContext = createContext()
 

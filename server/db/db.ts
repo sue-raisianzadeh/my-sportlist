@@ -1,6 +1,6 @@
 import config from './knexfile'
 import knex from 'knex'
-import { Widget } from '../../models/Widget'
+import { Sport } from '../../models/Sport'
 
 type Environment = 'production' | 'test' | 'development'
 const environment = (process.env.NODE_ENV as Environment) || 'development'
