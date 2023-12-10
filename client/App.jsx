@@ -1,8 +1,26 @@
-import React from 'react'
-function App() {
+// App.jsx
+import React, { useEffect, useContext } from 'react'
+import { SportProvider } from './components/contexts/SportContext'
+import SportsList from './components/SportList'
+import { ContentRepository } from './components/ContentRepository'
+
+const App = () => {
+  const { setSports } = useContext(SportProvider)
+
+  useEffect(() => {
+    const fetchSports = async () => {
+      const contentRepo = new ContentRepository()
+      const featuredSports = await contentRepo.getFeaturedSports()
+      setSports(featuredSports)
+    }
+
+    fetchSports()
+  }, [setSports])
+
   return (
-    <div>
-      <h1>Widgets for the win!</h1>
+    <div className="App">
+      <SportsList />
+      <h1>hi</h1>
     </div>
   )
 }

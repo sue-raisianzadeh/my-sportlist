@@ -1,6 +1,19 @@
-.h1app{
-  color:red;
+/* App.css */
+.App {
+  text-align: center;
 }
-h1{
-  color: aquamarine;
+
+.sports-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sport-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  max-width: 300px;
+  text-align: left;
 }

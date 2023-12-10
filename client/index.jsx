@@ -1,9 +1,10 @@
 import React from 'react'
-import { createRoot } from 'react-dom/client'
+import ReactDOM from 'react-dom/client'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App'
 
-document.addEventListener('DOMContentLoaded', () => {
-  createRoot(document.getElementById('app')).render(<App />)
-
-  // createRoot(document.getElementById('app') as HTMLElement).render(<App />)
-})
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
