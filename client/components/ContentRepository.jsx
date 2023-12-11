@@ -1,6 +1,6 @@
 // ContentRepository.jsx
 import React from 'react'
-import Sport from '../components/Sport.jsx'
+import Sport from './Sport.jsx/index.js'
 
 // ContentRepository.js
 export class ContentRepository {
