@@ -5,7 +5,8 @@ import { Link, useParams } from 'react-router-dom'
 import { Sporti } from '../../model/Sport'
 
 const Sports = (props) => {
-  const imageBaseUrl = 'https://source.unsplash.com/780x480/?sports'
+  const imageBaseUrl = 'https://sportscore1.p.rapidapi.com/sports/1/teams'
+
   const [sportList, setSportList] = useState([])
   const [category, setCategory] = useState(0)
   const [description, setDescription] = useState(0)
