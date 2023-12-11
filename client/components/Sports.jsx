@@ -7,22 +7,22 @@ import { Sporti } from '../../Model/Sport'
 const Sports = (props) => {
   const imageBaseUrl = 'https://source.unsplash.com/780x480/?sports'
   const [sportList, setSportList] = useState([])
-  const [name, setName] = useState(0)
+  const [category, setCategory] = useState(0)
   const [description, setDescription] = useState(0)
 
   const { name: paramName, description: paramDescription } = useParams()
 
   useEffect(() => {
     const setNameAndDescription = () => {
-      setName(Number(paramName))
+      setCategory(Number(paramName))
       setDescription(Number(paramDescription))
     }
 
     setNameAndDescription()
 
-    if (name && description) {
+    if (category && description) {
       props
-        .setApi(name, description)
+        .setApi(category)
         .then((res) => {
           setSportList(res)
           console.log(res)
@@ -41,7 +41,7 @@ const Sports = (props) => {
           console.error('Error fetching data:', error)
         })
     }
-  }, [paramName, paramDescription, name, description])
+  }, [paramName, paramDescription, category, description])
 
   return (
     <div>
@@ -57,7 +57,7 @@ const Sports = (props) => {
                     <h1>{Sport.name}</h1>
                     <h3>⭐Rates: {Sport.description}</h3>
                     <img src={`${imageBaseUrl}${Sport.poster_path}`} alt="" />
-                    <Link to={`/sports/${Sport.id}`}>View Detail</Link>
+                    <a to={`/sports/${Sport.id}`}>View Detail</a>
                   </div>
                 )
               )

@@ -1,12 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './App'
-import { SportProvider } from './components/contexts/SportContext'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter as Router } from 'react-router-dom'
+import App from './components/App'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <SportProvider>
+document.addEventListener('DOMContentLoaded', () => {
+  createRoot(document.getElementById('app')).render(
+    <Router>
       <App />
-    </SportProvider>
-  </React.StrictMode>
-)
+    </Router>
+  )
+})

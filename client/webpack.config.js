@@ -20,4 +20,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   devtool: 'source-map',
+  devServer: {
+    contentBase: join(__dirname, '../server/public'),
+  },
 }

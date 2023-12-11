@@ -1,19 +1,282 @@
-/* App.css */
-.App {
+/* Import Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400&family=Roboto:wght@400;500;700;900&display=swap');
+
+
+/* Global Styles */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+hr {
+  border: 5px solid rgb(179, 158, 0);
+  border-radius: 5px;
+  width: 75%;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1{
+  color: #431459;
+  background-color:#e7dff7;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+h2 {
+  color: #ffffff;
+  font-size: 35px;
+  background-color: rgb(155, 0, 0);
+  width: 75%;
+  display: block;
+margin-left: auto;
+margin-right: auto;
+border-radius: 10px;
+}
+
+h3{
+  color:rgb(3, 0, 0);
+  /* background-color: rgb(255, 255, 255); */
+}
+
+/* Landing Page Style */
+
+.background {
+  background-color: #431459;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+
+}
+
+.subtitle {
   text-align: center;
+  padding-top: 50px;
+  padding-bottom: 20px;
+
 }
 
-.sports-list {
+/* Movie List Style */
+.list__container {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  justify-content: center;
+
+
+
+  margin-left: 200px;
+  padding: 1px 16px;
+
+
 }
 
-.sport-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
+.list__container>div {
+  background-color:#dacfff;
+  width: 25%;
+  margin-bottom: 3rem;
+  border: 1px solid #ffffff;
+  padding: 2rem;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.list__container>div>* {
+  margin-bottom: 1.5rem;
+  
+}
+
+.list__container img {
+  width: 100%;
+  height: 70%;
+}
+
+.movie_title {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+/* NavBar Style */
+
+
+.sidenav {
+
+  background-color: #321142;
+  color: rgb(134, 76, 161);
+  width: 150px;
+  float: left;
+  display: inline;
+  margin: 0;
+  padding: 0;
+
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  border-top-right-radius: 80px;
+  /* border-bottom-right-radius: 80px; */
+}
+
+
+
+
+.searchForm{
+  width: 75%;
+  position: relative;
+  align-items: center;
+  display:flex;
+  margin: 10px auto;
+}
+
+.searchBar{
+  height: 50px;
+  width: 100%;
+  padding:20px;
+  border:1px solid grey;
+  border-radius: 20px;
+  font-size: 20px;
+  
+}
+.searchBar:focus{
+  outline: none;
+}
+
+.sumbitButton{
+width: 30px;
+height: 30px;
+position: absolute;
+right:10px;
+background-color: transparent;
+border:none
+}
+/* sidenav links */
+.sidenav a {
+  display: block;
+  color: black;
   padding: 16px;
-  margin: 16px;
-  max-width: 300px;
-  text-align: left;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+/* Active/current link */
+.sidenav a.active {
+  background-color: #a190ff;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidenav a:hover:not(.active) {
+  background-color: #c6bcff;
+  color: white;
+  
+}
+
+
+
+/* div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+} */
+
+/* On screens that are less than 700px wide, make the sidenav into a topbar */
+@media screen and (max-width: 700px) {
+  .sidenav {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .sidenav a {
+    float: left;
+  }
+
+  div.content {
+    margin-left: 0;
+  }
+
+  /* serachBar style */
+
+  /* .searchForm {
+    display: flex;
+    position: relative;
+    align-items: center;
+  }
+
+
+  .searchBar {
+    height: 40px;
+    width: 80%;
+    border: 1px solid grey;
+    border-radius: 20px;
+  }
+
+
+  .searchBar:focus {
+    outline: none;
+  }
+
+  .sumbitButton {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 270px;
+    background-color: transparent;
+    border: none
+  } */
+
+
+
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 400px) {
+
+    .sidenav a {
+      text-align: center;
+      float: none;
+    }
+  }
+
+}
+
+
+/* Movie Detail Page */
+.detail__container {
+  margin:1.5rem;
+}
+
+.detail__container h3 {
+  font-size: 4rem;
+}
+
+.detail__container > *{
+  margin-bottom: 2.5rem;
+}
+
+.detail__container img {
+  width: 50%;
+}
+
+.detail__container * {
+  color: #fff;
 }

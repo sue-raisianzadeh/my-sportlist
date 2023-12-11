@@ -24,7 +24,7 @@ const Sport = () => {
     <div className="detail__container" style={{ marginLeft: '200px' }}>
       <h3>{data.title}</h3>
       <p>
-        <i>{data.description}</i>
+        <i>{data.tagline}</i>
       </p>
       <p>Popularity: {data.popularity}</p>
       <p>Overview: {data.overview}</p>
