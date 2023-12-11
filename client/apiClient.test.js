@@ -1,6 +1,6 @@
 /* eslint-env jest */
 /* global test, expect */
-
+import React from 'react'
 const request = require('supertest')
 const api = require('./apiClient')
 

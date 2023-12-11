@@ -1,5 +1,5 @@
+import React from 'react'
 import request from 'superagent'
-
 import Sport from './components/Sport'
 
 export function getGreeting() {

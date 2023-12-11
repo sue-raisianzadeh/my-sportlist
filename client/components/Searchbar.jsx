@@ -1,15 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-
+import Sports2 from '../assets/sports.jpg'
 const Searchbar = (props) => {
   return (
     <div>
-      <div>
-        <img className="logo" src="/sports2.jpg" alt="Sports Logo" />
+      <div
+        className="logo"
+        style={{
+          backgroundImage: `url(${Sports2})`,
+          backgroundSize: 'cover',
+          width: '100%',
+          height: '18vh',
+          margin: 0,
+        }}
+      >
+        <h2 className="subtitle">Sports</h2>
+        {/* <img className="logo" src={Sports2} alt="Sports" /> */}
       </div>
       <hr />
       <div className="subtitle">
-        <h2>
+        <h2 className="h2">
           🍿 Looking for inspiration on which sport to explore? Pick a category
           for some exciting suggestions! 🍿
         </h2>

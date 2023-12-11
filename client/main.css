@@ -37,11 +37,12 @@ h1{
   border-radius: 15px;
 }
 
-h2 {
+.h2 {
   color: #ffffff;
   font-size: 35px;
-  background-color: rgb(155, 0, 0);
+  background-color: rgb(13, 138, 155);
   width: 75%;
+  height: 5%;
   display: block;
 margin-left: auto;
 margin-right: auto;
@@ -56,7 +57,7 @@ h3{
 /* Landing Page Style */
 
 .background {
-  background-color: #431459;
+  background-color: #0e524f;
 }
 
 .logo {
@@ -64,13 +65,18 @@ h3{
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
+  font-size: 3em;
 
 }
 
 .subtitle {
   text-align: center;
-  padding-top: 50px;
+  padding-top: 10px;
   padding-bottom: 20px;
+  font-size: 2em;
+  font-family: 'Cairo', Georgia, 'Times New Roman', Times, serif;
+  font-weight: 400;
+  /* letter-spacing: 4px; */
 
 }
 
@@ -214,6 +220,13 @@ border:none
 
   div.content {
     margin-left: 0;
+  }
+
+  /* pictop */
+
+  .subtitle2 {
+    font-size: 5em;
+
   }
 
   /* serachBar style */

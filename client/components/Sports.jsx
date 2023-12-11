@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Sport from './Sport'
 import PropTypes from 'prop-types'
 import { Link, useParams } from 'react-router-dom'
-import { Sporti } from '../../Model/Sport'
+import { Sporti } from '../../model/Sport'
 
 const Sports = (props) => {
   const imageBaseUrl = 'https://source.unsplash.com/780x480/?sports'

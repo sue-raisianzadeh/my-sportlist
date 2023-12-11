@@ -1,6 +1,6 @@
 /* eslint-env jest */
 /* global test, expect */
-
+import React from 'react'
 import Landing from './Landing'
 import { render, screen } from '@testing-library/react'
 

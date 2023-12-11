@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState, useEffect } from 'react'
 import { Route, Routes, useParams } from 'react-router-dom'
 import { getPopularSports, getSportByCategory } from '../apiClient'
@@ -31,6 +32,7 @@ const App = () => {
           />
           <Route path="/Sports/:id" element={<Sport />} />
         </Routes>
+        <h1>Hi</h1>{' '}
       </div>
     </>
   )
