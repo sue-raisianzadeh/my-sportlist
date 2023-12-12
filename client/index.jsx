@@ -1,14 +1,13 @@
+// client/index.jsx
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import App from './components/App'
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Router>
-      <App />
-    </Router>,
-    document.getElementById('app')
-  )
-})
+const container = document.getElementById('app')
+const root = createRoot(container)
+root.render(
+  <Router>
+    <App />
+  </Router>
+)
