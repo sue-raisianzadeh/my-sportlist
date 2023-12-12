@@ -1,6 +1,6 @@
 import { join } from 'node:path'
 import express from 'express'
-import cors, { CorsOptions } from 'cors'
+import cors from 'cors'
 
 const server = express()
 

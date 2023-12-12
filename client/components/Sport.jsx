@@ -7,6 +7,8 @@ const Sport = () => {
   const [teamDetails, setTeamDetails] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
+  const imageBaseUrl =
+    'https://www.thesportsdb.com/api/v1/json/3/all_sports.php'
 
   useEffect(() => {
     const fetchTeamDetails = async () => {
@@ -34,7 +36,10 @@ const Sport = () => {
   return teamDetails ? (
     <div className="detail__container">
       <h3>{teamDetails.strTeam}</h3>
-      <img src={teamDetails.strTeamBadge} alt={teamDetails.strTeam} />
+      <img
+        src={imageBaseUrl + teamDetails.strTeamBadge}
+        alt={teamDetails.strTeam}
+      />
       <p>{teamDetails.strDescriptionEN}</p>
     </div>
   ) : (

@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-  // Add your categories here
   const categories = [
     'Football',
     'Basketball',
@@ -18,11 +17,13 @@ const Navbar = () => {
           <Link to={'/'}> Home </Link>
         </li>
 
-        {categories.map((category, index) => (
-          <li key={index}>
-            <Link to={`/category/${category}`}>{category}</Link>
-          </li>
-        ))}
+        <li>
+          {categories.map((category, index) => (
+            <Link key={index} to={`/category/${category.index}`}>
+              {category}
+            </Link>
+          ))}
+        </li>
       </ul>
     </div>
   )
