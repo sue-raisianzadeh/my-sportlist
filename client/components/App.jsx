@@ -23,7 +23,10 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Landing search={search} />} />
-        <Route path="/sports" element={<Sports search={search} />} />
+        <Route
+          path="/sports"
+          element={<Sports search={search} setApi={getPopularSports} />}
+        />
         <Route path="/category/:categoryName" element={<CategoryComponent />} />
         <Route path="/sports/:id" element={<Sport />} />
       </Routes>
