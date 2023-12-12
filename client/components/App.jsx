@@ -1,6 +1,4 @@
-// client/components/App.jsx
-import React from 'react'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { getPopularSports } from '../apiClient'
 import Landing from './Landing'
@@ -8,7 +6,7 @@ import Sports from './Sports'
 import Navbar from './Navbar'
 import Searchbar from './Searchbar'
 import Sport from './Sport'
-import CategoryComponent from './CategoryComponent' // Import the new component
+import CategoryComponent from './CategoryComponent'
 
 const App = () => {
   const [search, setSearch] = useState('')
@@ -25,6 +23,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Landing search={search} />} />
+        <Route path="/sports" element={<Sports search={search} />} />
         <Route path="/category/:categoryName" element={<CategoryComponent />} />
         <Route path="/sports/:id" element={<Sport />} />
       </Routes>
