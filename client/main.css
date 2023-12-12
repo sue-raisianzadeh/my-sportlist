@@ -138,8 +138,8 @@ color: #e7dff7;
 
 .sidenav {
 
-  background-color: #321142;
-  color: rgb(134, 76, 161);
+  background-color: #035140;
+  color: rgb(65, 185, 147);
   width: 150px;
   float: left;
   display: inline;
@@ -147,7 +147,7 @@ color: #e7dff7;
   padding: 0;
 
   width: 200px;
-  background-color: #f1f1f1;
+  background-color: #ccfaed;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -170,7 +170,7 @@ color: #e7dff7;
   height: 50px;
   width: 100%;
   padding:20px;
-  border:1px solid grey;
+  border:1px solid rgb(95, 128, 121);
   border-radius: 20px;
   font-size: 20px;
   
@@ -198,13 +198,13 @@ border:none
 
 /* Active/current link */
 .sidenav a.active {
-  background-color: #a190ff;
+  background-color: #7dcfbd;
   color: white;
 }
 
 /* Links on mouse-over */
 .sidenav a:hover:not(.active) {
-  background-color: #c6bcff;
+  background-color: #4aaaa2;
   color: white;
   
 }

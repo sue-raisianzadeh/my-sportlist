@@ -2,11 +2,13 @@
   "name": "sport-list",
   "private": true,
   "version": "0.1.0",
+  "type": "module",
   "scripts": {
+    "dev:server": "nodemon server/server.js",
     "start": "node server/server.js",
     "dev": "run-p dev:server dev:client",
     "dev:client": "vite",
-    "dev:server": "nodemon server/server.js",
+    "dev:server": "nodemon --experimental-modules server/server.js",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
