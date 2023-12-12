@@ -1,16 +1,32 @@
-// SportList.jsx
-import React, { useContext } from 'react'
-import Sport from './Sporti'
-import { SportContext } from './contexts/SportContext'
+// client/components/SportsList.jsx
+import React, { useState, useEffect } from 'react'
+import { selectRandomSports } from '../utilities/utility'
+import { ContentRepository } from '../api/ContentRepository'
 
 const SportsList = () => {
-  const { sports } = useContext(SportContext)
+  const [sports, setSports] = useState([])
+
+  useEffect(() => {
+    const fetchSports = async () => {
+      const allSports = await ContentRepository.getFeaturedSports()
+      setSports(selectRandomSports(allSports, 3))
+    }
+    fetchSports()
+  }, [])
+
+  const refreshSports = () => {
+    fetchSports()
+  }
 
   return (
-    <div className="sports-list">
-      {sports.map((sport) => (
-        <Sport key={sport.name} {...sport} />
+    <div className="list__container">
+      {sports.map((sport, index) => (
+        <div key={index} className="sport-item">
+          <h2>{sport.name}</h2>
+          <p>{sport.description}</p>
+        </div>
       ))}
+      <button onClick={refreshSports}>Refresh Sports</button>
     </div>
   )
 }

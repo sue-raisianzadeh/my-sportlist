@@ -1,86 +1,44 @@
 import React, { useEffect, useState } from 'react'
-import Sport from './Sport'
+import { Link } from 'react-router-dom'
+import { ContentRepository } from '../api/ContentRepository'
 import PropTypes from 'prop-types'
-import { Link, useParams } from 'react-router-dom'
-import { Sporti } from '../../model/Sport'
 
-const Sports = (props) => {
-  const imageBaseUrl = 'https://sportscore1.p.rapidapi.com/sports/1/teams'
-
-  const [sportList, setSportList] = useState([])
-  const [category, setCategory] = useState(0)
-  const [description, setDescription] = useState(0)
-
-  const { name: paramName, description: paramDescription } = useParams()
+const Sports = ({ search }) => {
+  const [sports, setSports] = useState([])
 
   useEffect(() => {
-    const setNameAndDescription = () => {
-      setCategory(Number(paramName))
-      setDescription(Number(paramDescription))
-    }
+    ContentRepository.getFeaturedSports()
+      .then((sportsData) => {
+        setSports(sportsData)
+      })
+      .catch(console.error)
+  }, [])
 
-    setNameAndDescription()
-
-    if (category && description) {
-      props
-        .setApi(category)
-        .then((res) => {
-          setSportList(res)
-          console.log(res)
-        })
-        .catch((error) => {
-          console.error('Error fetching data:', error)
-        })
-    } else if (!paramName && !paramDescription) {
-      props
-        .setApi()
-        .then((res) => {
-          setSportList(res)
-          console.log(res)
-        })
-        .catch((error) => {
-          console.error('Error fetching data:', error)
-        })
-    }
-  }, [paramName, paramDescription, category, description])
+  const filteredSports = search
+    ? sports.filter((sport) =>
+        sport.name.toLowerCase().includes(search.toLowerCase())
+      )
+    : sports
 
   return (
-    <div>
-      <div className="list__container">
-        {sportList.name &&
-          sportList.map((Sporti, i) => {
-            if (props.search.length) {
-              return (
-                Sport.name
-                  .toLocaleLowerCase()
-                  .includes(props.search.toLocaleLowerCase()) && (
-                  <div key={i}>
-                    <h1>{Sport.name}</h1>
-                    <h3>⭐Rates: {Sport.description}</h3>
-                    <img src={`${imageBaseUrl}${Sport.poster_path}`} alt="" />
-                    <a to={`/sports/${Sport.id}`}>View Detail</a>
-                  </div>
-                )
-              )
-            } else {
-              return (
-                <div key={i}>
-                  <h1>{Sport.name}</h1>
-                  <h3>Rates: {Sport.description}</h3>
-                  <img src={`${imageBaseUrl}${Sport.poster_path}`} alt="" />
-                  <Link to={`/sports/${Sport.id}`}>View Detail</Link>
-                </div>
-              )
-            }
-          })}
-      </div>
+    <div className="list__container">
+      {filteredSports.map((sport, index) => (
+        <div key={index}>
+          <h1>{sport.name}</h1>
+          <h3>⭐Description: {sport.description}</h3>
+          <img src={sport.imageUrl} alt={sport.name} />
+          <Link to={`/sport/${sport.id}`}>View Detail</Link>
+        </div>
+      ))}
+      {filteredSports.length === 0 && (
+        <p>No sports found matching the search criteria.</p>
+      )}
     </div>
   )
 }
 
 Sports.propTypes = {
-  setApi: PropTypes.func.isRequired,
-  search: PropTypes.string.isRequired,
+  search: PropTypes.string,
 }
 
 export default Sports

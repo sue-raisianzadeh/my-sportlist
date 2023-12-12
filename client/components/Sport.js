@@ -30,3 +30,4 @@ export class ContentRepository {
     })
   }
 }
+export default Sport

@@ -1,34 +1,49 @@
 import React, { useEffect, useState } from 'react'
-import { getSportByID } from '../apiClient'
 import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const Sport = () => {
   const { id } = useParams()
-  const parsedId = Number(id)
-  const [ID, setID] = useState(parsedId)
-  const [data, setData] = useState({})
-  const imageBaseUrl = 'https://source.unsplash.com/780x480/?sports'
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    getSportByID(ID)
-      .then((sports) => {
-        setData(sports)
-        console.log(sports)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }, [ID])
+    const fetchSportData = async () => {
+      try {
+        const response = await axios.get(
+          `https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=${id}`
+        )
+        setData(response.data.leagues[0])
+      } catch (err) {
+        setError('Error fetching sport data')
+        console.error(err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchSportData()
+  }, [id])
+
+  if (loading) return <div>Loading...</div>
+  if (error) return <div>{error}</div>
 
   return (
-    <div className="detail__container" style={{ marginLeft: '200px' }}>
-      <h3>{data.title}</h3>
-      <p>
-        <i>{data.tagline}</i>
-      </p>
-      <p>Popularity: {data.popularity}</p>
-      <p>Overview: {data.overview}</p>
-      <img src={imageBaseUrl + data.poster_path} alt="" />
+    <div className="detail__container">
+      {data ? (
+        <>
+          <h3>{data.strLeague}</h3>
+          <p>Country: {data.strCountry}</p>
+          <p>Sport: {data.strSport}</p>
+          <p>Description: {data.strDescriptionEN}</p>
+          {/* <img src={imageBaseUrl + data.poster_path} alt="" /> */}
+
+          {data.strBadge && <img src={data.strBadge} alt={data.strLeague} />}
+        </>
+      ) : (
+        <p>No sport data available.</p>
+      )}
     </div>
   )
 }

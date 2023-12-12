@@ -32,7 +32,6 @@ const App = () => {
           />
           <Route path="/Sports/:id" element={<Sport />} />
         </Routes>
-        <h1>Hi</h1>{' '}
       </div>
     </>
   )
