@@ -1,44 +1,38 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { ContentRepository } from '../api/ContentRepository'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
-const Sports = ({ search }) => {
+const Sports = ({ search, setApi }) => {
   const [sports, setSports] = useState([])
 
   useEffect(() => {
-    ContentRepository.getFeaturedSports()
-      .then((sportsData) => {
-        setSports(sportsData)
-      })
+    setApi()
+      .then((data) => setSports(data))
       .catch(console.error)
-  }, [])
+  }, [setApi])
 
-  const filteredSports = search
-    ? sports.filter((sport) =>
-        sport.name.toLowerCase().includes(search.toLowerCase())
-      )
-    : sports
+  // Filter sports based on search query
+  const filteredSports = sports.filter((sport) =>
+    sport.strSport.toLowerCase().includes(search.toLowerCase())
+  )
 
   return (
     <div className="list__container">
       {filteredSports.map((sport, index) => (
         <div key={index}>
-          <h1>{sport.name}</h1>
-          <h3>⭐Description: {sport.description}</h3>
-          <img src={sport.imageUrl} alt={sport.name} />
-          <Link to={`/sport/${sport.id}`}>View Detail</Link>
+          <h1>{sport.strSport}</h1>
+          <p>{sport.strSportDescription}</p>
+          <img src={sport.strSportThumb} alt={sport.strSport} />
+          <Link to={`/sports/${sport.idSport}`}>View Details</Link>
         </div>
       ))}
-      {filteredSports.length === 0 && (
-        <p>No sports found matching the search criteria.</p>
-      )}
     </div>
   )
 }
 
 Sports.propTypes = {
   search: PropTypes.string,
+  setApi: PropTypes.func.isRequired,
 }
 
 export default Sports

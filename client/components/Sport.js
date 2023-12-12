@@ -1,4 +1,3 @@
-// Sport.js
 export class Sport {
   constructor(name, description) {
     this.name = name

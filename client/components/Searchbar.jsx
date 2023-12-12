@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React from 'react'
 import Sports2 from '../assets/sports.jpg'
 const Searchbar = (props) => {
   return (

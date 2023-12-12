@@ -1,50 +1,44 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import axios from 'axios'
+import { getTeamDetailsById } from '../api/apiClient'
 
 const Sport = () => {
   const { id } = useParams()
-  const [data, setData] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [teamDetails, setTeamDetails] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    const fetchSportData = async () => {
+    const fetchTeamDetails = async () => {
       try {
-        const response = await axios.get(
-          `https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=${id}`
-        )
-        setData(response.data.leagues[0])
+        const details = await getTeamDetailsById(id)
+        setTeamDetails(details)
       } catch (err) {
-        setError('Error fetching sport data')
-        console.error(err)
+        setError(err.message)
       } finally {
-        setLoading(false)
+        setIsLoading(false)
       }
     }
 
-    fetchSportData()
+    fetchTeamDetails()
   }, [id])
 
-  if (loading) return <div>Loading...</div>
-  if (error) return <div>{error}</div>
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
 
-  return (
+  if (error) {
+    return <div>Error: {error}</div>
+  }
+
+  return teamDetails ? (
     <div className="detail__container">
-      {data ? (
-        <>
-          <h3>{data.strLeague}</h3>
-          <p>Country: {data.strCountry}</p>
-          <p>Sport: {data.strSport}</p>
-          <p>Description: {data.strDescriptionEN}</p>
-          {/* <img src={imageBaseUrl + data.poster_path} alt="" /> */}
-
-          {data.strBadge && <img src={data.strBadge} alt={data.strLeague} />}
-        </>
-      ) : (
-        <p>No sport data available.</p>
-      )}
+      <h3>{teamDetails.strTeam}</h3>
+      <img src={teamDetails.strTeamBadge} alt={teamDetails.strTeam} />
+      <p>{teamDetails.strDescriptionEN}</p>
     </div>
+  ) : (
+    <div>No team details available.</div>
   )
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { getPopularSports } from '../apiClient'
+import { getPopularSports } from '../api/apiClient'
 import Landing from './Landing'
 import Sports from './Sports'
 import Navbar from './Navbar'

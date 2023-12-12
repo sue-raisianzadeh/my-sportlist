@@ -1,6 +1,6 @@
 import React from 'react'
+import { getPopularSports } from '../api/apiClient'
 import Sports from './Sports'
-import { getPopularSports } from '../apiClient'
 
 const Landing = (props) => {
   return (

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getSportByCategory } from '../apiClient'
+import { getSportByCategory } from '../api/apiClient'
 
 const CategoryComponent = () => {
   const { categoryName } = useParams()
