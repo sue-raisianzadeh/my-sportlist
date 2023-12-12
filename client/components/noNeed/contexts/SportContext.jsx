@@ -1,4 +1,3 @@
-// SportContext.jsx
 import React, { createContext, useState } from 'react'
 
 export const SportContext = createContext()
