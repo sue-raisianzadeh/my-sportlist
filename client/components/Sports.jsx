@@ -1,6 +1,5 @@
 // client/components/Sports.jsx
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { getAllSports } from '../api/apiClient' // Import the correct API function
 
@@ -30,10 +29,6 @@ const Sports = ({ search }) => {
       ))}
     </div>
   )
-}
-
-Sports.propTypes = {
-  search: PropTypes.string,
 }
 
 export default Sports
