@@ -21,7 +21,6 @@ export async function getSportDetailsById(id) {
     .set(headers)
   return response.body.sports[0]
 }
-
 export async function getTeamsByLeagueId(leagueId) {
   const response = await request
     .get(`${apiBaseUrl}/lookup_all_teams.php?id=${leagueId}`)
