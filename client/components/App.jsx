@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { getPopularSports } from '../api/apiClient'
+import { getSportByCategory, getPopularSports } from '../api/apiClient'
 import Landing from './Landing'
 import Sports from './Sports'
 import Navbar from './Navbar'
@@ -24,8 +24,13 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Landing search={search} />} />
         <Route
-          path="/sports"
-          element={<Sports search={search} setApi={getPopularSports} />}
+          path="/:category"
+          element={
+            <Sports
+              setApi={(category) => getSportByCategory(category)}
+              search={search}
+            />
+          }
         />
         <Route path="/category/:categoryName" element={<CategoryComponent />} />
         <Route path="/sports/:id" element={<Sport />} />

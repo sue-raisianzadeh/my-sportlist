@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   const categories = [
-    'Football',
-    'Basketball',
-    'Volleyball',
-    'Biking',
-    'Swimmimg',
+    { id: 4526, name: 'Football' },
+    { id: 4831, name: 'Basketball' },
+    { id: 141822, name: 'Volleyball' },
+    { id: 5141, name: 'ski' },
+    { id: 5308, name: 'Swimmimg' },
   ]
 
   return (
@@ -18,9 +18,9 @@ const Navbar = () => {
         </li>
 
         <li>
-          {categories.map((category, index) => (
-            <Link key={index} to={`/category/${category.index}`}>
-              {category}
+          {categories.map((category) => (
+            <Link key={category.id} to={`/category/${category.id}`}>
+              {category.name}
             </Link>
           ))}
         </li>

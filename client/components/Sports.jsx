@@ -1,15 +1,17 @@
+// client/components/Sports.jsx
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import { getAllSports } from '../api/apiClient' // Import the correct API function
 
-const Sports = ({ search, setApi }) => {
+const Sports = ({ search }) => {
   const [sports, setSports] = useState([])
 
   useEffect(() => {
-    setApi()
+    getAllSports()
       .then((data) => setSports(data))
       .catch(console.error)
-  }, [setApi])
+  }, [])
 
   // Filter sports based on search query
   const filteredSports = sports.filter((sport) =>
@@ -32,7 +34,6 @@ const Sports = ({ search, setApi }) => {
 
 Sports.propTypes = {
   search: PropTypes.string,
-  setApi: PropTypes.func.isRequired,
 }
 
 export default Sports
