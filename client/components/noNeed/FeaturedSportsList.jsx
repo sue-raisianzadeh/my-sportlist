@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { ContentRepository } from '../../api/ContentRepository'
+import { ContentRepository } from './ContentRepository'
 
 const FeaturedSportsList = () => {
   const [featuredSports, setFeaturedSports] = useState([])

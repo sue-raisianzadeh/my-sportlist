@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Sporti } from '../../model/Sporti'
+import { Sporti } from '../../../model/Sporti'
 
 export class ContentRepository {
   static apiBaseUrl = 'https://www.thesportsdb.com/api/v1/json/1'

@@ -1,7 +1,7 @@
 // client/components/SportsList.jsx
 import React, { useState, useEffect } from 'react'
 import { selectRandomSports } from '../utilities/utility'
-import { ContentRepository } from '../api/ContentRepository'
+import { ContentRepository } from './ContentRepository'
 
 const SportsList = () => {
   const [sports, setSports] = useState([])

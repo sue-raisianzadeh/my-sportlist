@@ -4,6 +4,8 @@ import request from 'superagent'
 const apiBaseUrl = 'https://www.thesportsdb.com/api/v1/json/3/all_sports.php'
 
 export async function getAllSports() {
+  const pageNum = Math.floor(Math.random() * 20 + 1)
+
   try {
     const response = await request.get(
       `https://www.thesportsdb.com/api/v1/json/3/all_sports.php/all_sports.php`
@@ -22,21 +24,22 @@ export async function getPopularSports() {
 }
 export async function getSportByCategory(categoryName) {
   const response = await request.get(
-    `https://www.thesportsdb.com/api/v1/json/3/all_sports.php/all_category.php`
+    `https://www.thesportsdb.com/api/v1/json/3/all_category.php`
   )
   return response.body.sports
 }
 
 export async function getAllLeagues() {
   const response = await request.get(
-    `$https://www.thesportsdb.com/api/v1/json/3/all_sports.php/all_leagues.php`
+    `$https://www.thesportsdb.com/api/v1/json/3/all_leagues.php`
   )
   return response.body.leagues
 }
 
 export async function getLeagueDetailsById(leagueId) {
   const response = await request.get(
-    `$https://www.thesportsdb.com/api/v1/json/3/all_sports.php/lookupleague.php?id=${leagueId}`
+    `$thesportsdb.com/api/v1/json/all_countries.php
+    id=${leagueId}`
   )
   return response.body.leagues[0]
 }

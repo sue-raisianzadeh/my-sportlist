@@ -15,7 +15,7 @@ const CategoryComponent = () => {
         setLoading(false)
       })
       .catch((err) => {
-        console.error(err)
+        console.error('Error fetching sports data:', err)
         setError('Failed to fetch sports data.')
         setLoading(false)
       })

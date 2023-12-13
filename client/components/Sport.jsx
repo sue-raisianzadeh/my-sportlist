@@ -24,22 +24,17 @@ const Sport = () => {
     fetchTeamDetails()
   }, [id])
 
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
+  if (isLoading) return <div>Loading...</div>
+  if (error) return <div>Error: {error}</div>
 
-  if (error) {
-    return <div>Error: {error}</div>
-  }
-
-  return teamDetails ? (
+  return sportDetails ? (
     <div className="detail__container">
-      <h3>{teamDetails.strTeam}</h3>
-      <img src={teamDetails.strTeamBadge} alt={teamDetails.strTeam} />
-      <p>{teamDetails.strDescriptionEN}</p>
+      <h3>{sportDetails.strSport}</h3>
+      <img src={sportDetails.strSportThumb} alt={sportDetails.strSport} />
+      <p>{sportDetails.strSportDescription}</p>
     </div>
   ) : (
-    <div>No team details available.</div>
+    <div>No sport details available.</div>
   )
 }
 

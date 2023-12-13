@@ -1,7 +1,7 @@
 // client/components/Sports.jsx
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getAllSports } from '../api/apiClient' // Import the correct API function
+import { getAllSports } from '../api/apiClient'
 
 const Sports = ({ search }) => {
   const [sports, setSports] = useState([])
