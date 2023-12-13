@@ -6,7 +6,7 @@ const Navbar = () => {
     { id: 4526, name: 'Football' },
     { id: 4831, name: 'Basketball' },
     { id: 141822, name: 'Volleyball' },
-    { id: 5141, name: 'ski' },
+    { id: 5141, name: 'Ski' },
     { id: 5308, name: 'Swimmimg' },
   ]
 
