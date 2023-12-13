@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev:server": "nodemon server/index.js",
+    "dev:server": "nodemon server/server.js",
     "start": "node server/server.js",
     "dev": "run-p dev:server dev:client",
     "dev:client": "vite",
