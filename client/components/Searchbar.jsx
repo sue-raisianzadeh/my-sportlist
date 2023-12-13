@@ -30,7 +30,7 @@ const Searchbar = (props) => {
           value={props.search}
           onChange={(e) => props.setSearch(() => e.target.value)}
         />
-        <button className="sumbitButton" type="submit">
+        <button className="sumbitButton" type="submit" placeholder="Search">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

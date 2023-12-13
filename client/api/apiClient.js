@@ -4,8 +4,6 @@ import request from 'superagent'
 const apiBaseUrl = 'https://www.thesportsdb.com/api/v1/json/3/all_sports.php'
 
 export async function getAllSports() {
-  const pageNum = Math.floor(Math.random() * 20 + 1)
-
   try {
     const response = await request.get(
       `https://www.thesportsdb.com/api/v1/json/3/all_sports.php/all_sports.php`

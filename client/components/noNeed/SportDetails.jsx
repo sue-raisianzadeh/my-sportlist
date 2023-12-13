@@ -1,7 +1,7 @@
 // client/components/SportDetails.jsx
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getSportDetailsById } from '../api/apiClient'
+import { getSportDetailsById } from '../../api/apiClient'
 
 const SportDetails = () => {
   const { id } = useParams()
