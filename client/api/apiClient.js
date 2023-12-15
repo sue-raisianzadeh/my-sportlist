@@ -1,15 +1,15 @@
 import request from 'superagent'
 
-const apiBaseUrl = 'https://www.thesportsdb.com/api/v1/json/3'
-const rapidApiKey = 'YOUR_RAPIDAPI_KEY'
+const apiBaseUrl = 'https://sofasport.p.rapidapi.com/v1/search/multi'
+const rapidApiKey = '4540e7eef7msh137d391951dcb69p11f962jsn3eafe93a6097'
 
 // Fetches all sports
-export const getAllSports = async () => {
+export async function getAllSports() {
   try {
     const response = await request
       .get(`${apiBaseUrl}/all_sports.php`)
       .set('X-RapidAPI-Key', rapidApiKey)
-    return response.body.sports
+    return response.body.sports // Adjust as per the actual API response structure
   } catch (error) {
     console.error('Error fetching all sports:', error)
     return []
@@ -17,13 +17,12 @@ export const getAllSports = async () => {
 }
 
 // Fetches sports by category ID
-export const getSportsByCategory = async (categoryId) => {
-  // Assuming there's an endpoint that accepts category ID
+export async function getSportsByCategory(categoryId) {
   try {
     const response = await request
       .get(`${apiBaseUrl}/sports_by_category.php?id=${categoryId}`)
       .set('X-RapidAPI-Key', rapidApiKey)
-    return response.body.sports
+    return response.body.sports // Adjust as per the actual API response structure
   } catch (error) {
     console.error(`Error fetching sports by category ${categoryId}:`, error)
     return []
@@ -31,12 +30,12 @@ export const getSportsByCategory = async (categoryId) => {
 }
 
 // Fetches details of a sport by ID
-export const getSportDetailsById = async (id) => {
+export async function getSportDetailsById(id) {
   try {
     const response = await request
       .get(`${apiBaseUrl}/lookupsport.php?id=${id}`)
       .set('X-RapidAPI-Key', rapidApiKey)
-    return response.body.sports[0]
+    return response.body.sports[0] // Adjust as per the actual API response structure
   } catch (error) {
     console.error('Error fetching sport details:', error)
     return null
@@ -44,7 +43,7 @@ export const getSportDetailsById = async (id) => {
 }
 
 // Fetches a random selection of popular sports
-export const getPopularSports = async () => {
+export async function getPopularSports() {
   try {
     const response = await request
       .get(`${apiBaseUrl}/all_leagues.php`)
@@ -53,7 +52,7 @@ export const getPopularSports = async () => {
     const randomSports = response.body.leagues
       .sort(() => 0.5 - Math.random())
       .slice(0, 3)
-    return randomSports
+    return randomSports // Adjust as per the actual API response structure
   } catch (error) {
     console.error('Error fetching popular sports:', error)
     return []

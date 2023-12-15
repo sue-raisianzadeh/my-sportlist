@@ -27,11 +27,7 @@ hr {
 
 body {
   font-size: 1.6rem;
-  font-family: 'Roboto', sans-serif;
-}
-
-h1{
-  color: #431459;
+  font-family: 'Roboto','Cairo','Montserrat', Georgia, 'Times New Roman', Times, serif;
   background-color:#e7dff7;
   padding: 10px;
   border-radius: 15px;
@@ -39,13 +35,15 @@ h1{
 
 .h2 {
   color: #ffffff;
-  font-size: 35px;
+  font-size: 2rem;
   background-color: rgb(13, 138, 155);
-  width: 75%;
-  height: 8%;
+  width: 70%;
+  height: 30%;
+  text-align: center;
   display: block;
 margin-left: auto;
 margin-right: auto;
+padding-bottom: 1rem;
 border-radius: 10px;
 }
 
@@ -71,7 +69,7 @@ h3{
   /* font-style: italic; */
 }
 
-.subtitle {
+.subtitle2 {
   text-align: center;
   padding-top: 10px;
   padding-bottom: 20px;
@@ -79,7 +77,9 @@ h3{
   text-shadow: 2px 2px 5px #dacfff;
   font-family: 'Cairo','Montserrat', Georgia, 'Times New Roman', Times, serif;
   font-weight: bold;
-}
+ }
+
+ 
 .look {
   background-color: #1d9791;
   justify-content: center;
@@ -159,11 +159,12 @@ color: #e7dff7;
 
 
 .searchForm{
-  width: 75%;
+  width: 70%;
   position: relative;
   align-items: center;
   display:flex;
-  margin: 10px auto;
+  margin: 1rem auto;
+  
 }
 
 .searchBar{
@@ -172,6 +173,7 @@ color: #e7dff7;
   padding:20px;
   border:1px solid rgb(95, 128, 121);
   border-radius: 20px;
+  animation: slideout 2s ease-out; 
   font-size: 20px;
   
 }

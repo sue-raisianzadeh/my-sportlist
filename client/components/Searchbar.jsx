@@ -14,7 +14,7 @@ const Searchbar = (props) => {
           margin: 0,
         }}
       >
-        <h2 className="subtitle">Sportflix</h2>
+        <h2 className="subtitle2">Sportflix</h2>
       </div>
       <hr></hr>
       <div className="subtitle">

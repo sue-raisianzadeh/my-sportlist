@@ -1,26 +1,23 @@
-import React from 'react'
-import { getSportDetailsById, getPopularSports } from '../api/apiClient'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { getSportDetailsById } from '../api/apiClient'
 
 const Sport = () => {
   const { id } = useParams()
-  const parsedId = Number(id)
-  const [ID, setID] = useState(parsedId)
   const [data, setData] = useState('')
 
-  const imageBaseUrl = 'https://www.thesportsdb.com/api/v1/json/3'
-
   useEffect(() => {
-    getSportDetailsById(ID)
-      .then((sports) => {
-        setData(sports)
-        console.log(sports)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }, [ID])
+    if (id) {
+      getSportDetailsById(id)
+        .then((sports) => {
+          setData(sports)
+          console.log(sports)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+  }, [id])
 
   return (
     <div className="detail__container" style={{ marginLeft: '200px' }}>
