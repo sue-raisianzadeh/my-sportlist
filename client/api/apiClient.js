@@ -1,43 +1,45 @@
 import request from 'superagent'
-import Sport from '../components/Sport'
 
-const apiBaseUrl = 'https://www.thesportsdb.com/api/v1/json/3'
-
-const headers = {
-  'X-RapidAPI-Key': '4540e7eef7msh137d391951dcb69p11f962jsn3eafe93a6097',
-  'X-RapidAPI-Host': 'allsportsapi2.p.rapidapi.com',
+const apiKey = '{apiKey}' // Replace with your actual API key
+const theSportsDBHeaders = {
+  'X-RapidAPI-Key': apiKey,
+  'X-RapidAPI-Host': 'thesportsdb.p.rapidapi.com',
 }
 
-export function getGreeting() {
-  return request.get('/greeting').then((res) => res.body.greeting)
+// Get a list of all sports
+export async function getAllSports() {
+  try {
+    const response = await request
+      .get('https://thesportsdb.p.rapidapi.com/all_sports.php')
+      .set(theSportsDBHeaders)
+    return response.body.sports
+  } catch (error) {
+    console.error('Error fetching all sports:', error)
+    return []
+  }
 }
 
-export async function getSportsByCategory(categoryId) {
-  const response = await request
-    .get(`${apiBaseUrl}/searchteams.php?t=${categoryId}`)
-    .set(headers)
-  return response.body.teams // represent sports by category for Navbar
-}
-
-export async function getPopularSports() {
-  const pageNum = Math.floor(Math.random() * 20) + 1
-  const response = await request
-    .get(`${apiBaseUrl}/searchteams.php?t=Arsenal=${pageNum}`)
-    .set(headers)
-  return response.body.leagues
-}
-
+// Get details of a sport by its ID
 export async function getSportDetailsById(id) {
-  const pageNum = Math.floor(Math.random() * 20) + 1
-  const response = await request
-    .get(`${apiBaseUrl}/lookupsport.php?id=${id}&page=${pageNum}`)
-    .set(headers)
-  return response.body.sports[0]
+  try {
+    const response = await request
+      .get(`https://thesportsdb.p.rapidapi.com/lookupsport.php?id=${id}`)
+      .set(theSportsDBHeaders)
+    return response.body.sports[0]
+  } catch (error) {
+    console.error('Error fetching sport details:', error)
+    return null
+  }
 }
 
-export async function getTeamsByLeagueId(leagueId) {
-  const response = await request
-    .get(`${apiBaseUrl}/lookup_all_teams.php?id=${leagueId}`)
-    .set(headers)
-  return response.body.teams
+// Get random popular sports
+export async function getPopularSports() {
+  const sports = await getAllSports()
+  if (sports && sports.length) {
+    const shuffledSports = sports.sort(() => 0.5 - Math.random())
+    return shuffledSports.slice(0, 3) // Get 3 random sports
+  }
+  return []
 }
+
+// Add more functions as required for your project

@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { getSportsByCategory, getPopularSports } from '../api/apiClient'
+import { getPopularSports } from '../api/apiClient'
 import Landing from './Landing'
 import Sports from './Sports'
 import Navbar from './Navbar'
 import Searchbar from './Searchbar'
 import Sport from './Sport'
-// import CategoryComponent from './CategoryComponent'
+import CategoryComponent from './CategoryComponent'
 
 const App = () => {
   const [search, setSearch] = useState('')
 
   useEffect(() => {
+    // Fetch popular sports when the app loads.
     getPopularSports().catch((err) => {
-      console.log(err)
+      console.error('Error fetching popular sports:', err)
     })
   }, [])
 
@@ -23,16 +24,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Landing search={search} />} />
-        <Route
-          path="/:category"
-          element={
-            <Sports
-              setApi={(category) => getSportByCategory(category)}
-              search={search}
-            />
-          }
-        />
-        {/* <Route path="/category/:categoryName" element={<CategoryComponent />} /> */}
+        <Route path="/category/:categoryID" element={<CategoryComponent />} />
         <Route path="/sports/:id" element={<Sport />} />
       </Routes>
     </div>
