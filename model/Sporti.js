@@ -1,5 +1,5 @@
 // model/Sporti.js
-export class Sporti {
+export class SportType {
   constructor(id, name, description, imageUrl) {
     this.id = id
     this.name = name
@@ -8,7 +8,7 @@ export class Sporti {
   }
 
   static fromApiData(data) {
-    return new Sporti(
+    return new SportType(
       data.idSport,
       data.strSport,
       data.strSportDescription,

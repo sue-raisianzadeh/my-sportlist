@@ -1,4 +1,5 @@
-import React from 'react'
+import { useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import Sports2 from '../assets/sports.jpg'
 const Searchbar = (props) => {
   return (
@@ -14,13 +15,13 @@ const Searchbar = (props) => {
         }}
       >
         <h2 className="subtitle">Sportflix</h2>
-        {/* <img className="logo" src={Sports2} alt="Sports" /> */}
       </div>
-      <hr />
+      <hr></hr>
       <div className="subtitle">
         <h2 className="h2">
-          🍿 Looking for inspiration on which sport to explore? Pick a category
-          for some exciting suggestions! 🍿
+          🍿 Need help deciding what to watch? Choose a genre for
+          suggestions!Need help deciding what sport to explore? Choose a
+          category for suggestions! 🍿
         </h2>
       </div>
       <form className="searchForm">
@@ -30,7 +31,7 @@ const Searchbar = (props) => {
           value={props.search}
           onChange={(e) => props.setSearch(() => e.target.value)}
         />
-        <button className="sumbitButton" type="submit" placeholder="Search">
+        <button className="sumbitButton" type="submit">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

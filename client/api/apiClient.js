@@ -1,33 +1,43 @@
-import axios from 'axios'
+import request from 'superagent'
+import Sport from '../components/Sport'
 
-// Replace 'YOUR_RAPIDAPI_KEY' with your actual RapidAPI key
-const rapidAPIKey = 'APIKey: b553c64367msh2737608445cc59dp1cdd54jsnfbe2fc0027dd'
+const apiBaseUrl = 'https://www.thesportsdb.com/api/v1/json/3'
 
-// Setting up the axios instance with RapidAPI host and key
-const rapidAPI = axios.create({
-  baseURL: 'https://api-sports.api-host.com/',
-  headers: {
-    'x-rapidapi-key': rapidAPIKey,
-    'x-rapidapi-host': 'API_HOST',
-  },
-})
-
-export const getPopularSports = async () => {
-  try {
-    const response = await rapidAPI.get('/sports')
-    return response.data
-  } catch (error) {
-    console.error('Error fetching sports:', error)
-    throw error
-  }
+const headers = {
+  'X-RapidAPI-Key': '4540e7eef7msh137d391951dcb69p11f962jsn3eafe93a6097',
+  'X-RapidAPI-Host': 'allsportsapi2.p.rapidapi.com',
 }
 
-export const getSportDetailsById = async (id) => {
-  try {
-    const response = await rapidAPI.get(`/sports/${id}`)
-    return response.data
-  } catch (error) {
-    console.error('Error fetching sport details:', error)
-    throw error
-  }
+export function getGreeting() {
+  return request.get('/greeting').then((res) => res.body.greeting)
+}
+
+export async function getSportsByCategory(categoryId) {
+  const response = await request
+    .get(`${apiBaseUrl}/searchteams.php?t=${categoryId}`)
+    .set(headers)
+  return response.body.teams // represent sports by category for Navbar
+}
+
+export async function getPopularSports() {
+  const pageNum = Math.floor(Math.random() * 20) + 1
+  const response = await request
+    .get(`${apiBaseUrl}/searchteams.php?t=Arsenal=${pageNum}`)
+    .set(headers)
+  return response.body.leagues
+}
+
+export async function getSportDetailsById(id) {
+  const pageNum = Math.floor(Math.random() * 20) + 1
+  const response = await request
+    .get(`${apiBaseUrl}/lookupsport.php?id=${id}&page=${pageNum}`)
+    .set(headers)
+  return response.body.sports[0]
+}
+
+export async function getTeamsByLeagueId(leagueId) {
+  const response = await request
+    .get(`${apiBaseUrl}/lookup_all_teams.php?id=${leagueId}`)
+    .set(headers)
+  return response.body.teams
 }

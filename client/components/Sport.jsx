@@ -1,40 +1,39 @@
-// client/components/Sport.jsx
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { getSportDetailsById, getPopularSports } from '../api/apiClient'
 import { useParams } from 'react-router-dom'
-import { getTeamDetailsById } from '../api/apiClient'
+import { useEffect, useState } from 'react'
 
 const Sport = () => {
   const { id } = useParams()
-  const [teamDetails, setTeamDetails] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const parsedId = Number(id)
+  const [ID, setID] = useState(parsedId)
+  const [data, setData] = useState('')
+
+  const imageBaseUrl = 'https://www.thesportsdb.com/api/v1/json/3'
 
   useEffect(() => {
-    const fetchTeamDetails = async () => {
-      try {
-        const details = await getTeamDetailsById(id)
-        setTeamDetails(details)
-      } catch (err) {
-        setError(err.message)
-      } finally {
-        setIsLoading(false)
-      }
-    }
+    getSportDetailsById(ID)
+      .then((sports) => {
+        setData(sports)
+        console.log(sports)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }, [ID])
 
-    fetchTeamDetails()
-  }, [id])
-
-  if (isLoading) return <div>Loading...</div>
-  if (error) return <div>Error: {error}</div>
-
-  return sportDetails ? (
-    <div className="detail__container">
-      <h3>{sportDetails.strSport}</h3>
-      <img src={sportDetails.strSportThumb} alt={sportDetails.strSport} />
-      <p>{sportDetails.strSportDescription}</p>
+  return (
+    <div className="detail__container" style={{ marginLeft: '200px' }}>
+      <h3>{data.title}</h3>
+      <p>
+        <i>{data.tagline}</i>
+      </p>
+      <p>Popularity: {data.popularity}</p>
+      <p>Date of release: {data.release_date}</p>
+      <p>Runtime: {data.runtime} minutes</p>
+      <p>Overview: {data.overview}</p>
+      <img src={imageBaseUrl + data.poster_path} alt="" />
     </div>
-  ) : (
-    <div>No sport details available.</div>
   )
 }
 
