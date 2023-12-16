@@ -31,10 +31,10 @@ export async function getSportDetailsById(id) {
 export async function getSportsByCategory(categoryId) {
   try {
     const response = await request
-      .get(`https://${sportsDbApiHost}/lookupsport.php?id=${categoryId}`)
+      .get(`https://${sportsDbApiHost}/eventsbycategory.php?id=${categoryId}`)
       .set('X-RapidAPI-Key', rapidApiKey)
       .set('X-RapidAPI-Host', sportsDbApiHost)
-    return response.body.sports
+    return response.body.sports // or the correct response structure
   } catch (error) {
     console.error(`Error fetching sports by category ${categoryId}:`, error)
     return []

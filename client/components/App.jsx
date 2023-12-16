@@ -4,7 +4,7 @@ import Sports from './Sports'
 import Navbar from './Navbar'
 import Searchbar from './Searchbar'
 import Sport from './Sport'
-
+import TeamDetails from './TeamDetails'
 const App = () => {
   const [search, setSearch] = useState('')
 
@@ -14,7 +14,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Sports search={search} />} />
-        <Route path="/category/:id" element={<Sports search={search} />} />
+        <Route path="/category/:id" element={<TeamDetails />} />
         <Route path="/sports/:id" element={<Sport />} />
       </Routes>
     </div>

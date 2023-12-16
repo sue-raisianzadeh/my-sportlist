@@ -1,28 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const categoryList = [
-  { id: '114', name: 'Football' },
-  { id: '106', name: 'Basketball' },
-  { id: '116', name: 'Volleyball' },
-  { id: '105', name: 'Baseball' },
-  { id: '134', name: 'Skiing' },
-  { id: '113', name: 'Cycling' },
-]
+const categories = ['Rugby', 'Basketball', 'Volleyball', 'Motorsport', 'Golf']
 
 const Navbar = () => {
   return (
     <div className="sidenav">
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        {categoryList.map((category) => (
-          <li key={category.id}>
-            <Link to={`/category/${category.id}`}>{category.name}</Link>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
           </li>
-        ))}
-      </ul>
+          {categories.map((category, index) => (
+            <Link key={index} to={`/?category=${category}`}>
+              {category}
+            </Link>
+          ))}
+        </ul>
+      </nav>
     </div>
   )
 }

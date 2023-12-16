@@ -28,7 +28,7 @@ hr {
 body {
   font-size: 1.6rem;
   font-family: 'Roboto','Cairo','Montserrat', Georgia, 'Times New Roman', Times, serif;
-  background-color:#e7dff7;
+  background-color:#117265;
   padding: 10px;
   border-radius: 15px;
 }
@@ -96,9 +96,6 @@ color: #e7dff7;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-
-
-
   margin-left: 200px;
   padding: 1px 16px;
 

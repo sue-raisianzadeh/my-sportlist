@@ -8,7 +8,7 @@ const Sport = () => {
 
   useEffect(() => {
     getSportDetailsById(id)
-      .then((data) => setSportDetails(data))
+      .then((sports) => setSportDetails(sports))
       .catch(console.error)
   }, [id])
 
@@ -18,7 +18,7 @@ const Sport = () => {
 
   // Adjust these fields to match the structure of your API response
   return (
-    <div className="detail__container">
+    <div className="detail__container" style={{ marginLeft: '200px' }}>
       <h2>{sportDetails.strSport}</h2>
       <img src={sportDetails.strSportThumb} alt={sportDetails.strSport} />
       <p>{sportDetails.strSportDescription}</p>
