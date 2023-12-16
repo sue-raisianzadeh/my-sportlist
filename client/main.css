@@ -145,13 +145,12 @@ color: #e7dff7;
   display: inline;
   margin: 0;
   padding: 0;
-
   width: 200px;
   background-color: #ccfaed;
   position: fixed;
   height: 100%;
   overflow: auto;
-  border-top-right-radius: 80px;
+  border-top-right-radius: 30px;
   /* border-bottom-right-radius: 80px; */
 }
 
