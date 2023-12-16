@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom'
 import { getSportsByCategory } from '../api/apiClient'
 
 const categoryList = [
-  { id: 'Football_ID', name: 'Football' },
-  { id: 'Basketball_ID', name: 'Basketball' },
-  { id: 'Volleyball_ID', name: 'Volleyball' },
-  { id: 'ski_ID', name: 'ski' },
-  { id: 'Swimming_ID', name: 'Swimming' },
+  { id: '114', name: 'Football' },
+  { id: '106', name: 'Basketball' },
+  { id: '116', name: 'Volleyball' },
+  { id: '105', name: 'Baseball' },
+  { id: '134', name: 'skiing' },
+  { id: '113', name: 'Cycling' },
 ]
 const Navbar = () => {
   return (
@@ -28,3 +29,32 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+// idSport:"131"
+// strSport:"Multi Sports"
+// idSport:"102"
+// strSport:"Soccer"
+// idSport:"114"
+// strSport:"Australian Football"
+// idSport:"107"
+// strSport:"American Football"
+// idSport:"116"
+// strSport:"Volleyball"
+// idSport:"113"
+// strSport:"Cycling"
+// idSport:"103"
+// strSport:"Motorsport"
+// idSport:"134"
+// strSport:"Skiing"
+// idSport:"105"
+// strSport:"Baseball"
+// idSport:"106"
+// strSport:"Basketball"
+// idSport:"109"
+// strSport:"Golf"
+// idSport:"110"
+// strSport:"Rugby"
+// idSport:"111"
+// strSport:"Tennis"
+// idSport:"112"
+// strSport:"Cricket"
