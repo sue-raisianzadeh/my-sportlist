@@ -1,23 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import { getSportsByCategory } from '../api/apiClient'
 
 const categoryList = [
   { id: '114', name: 'Football' },
   { id: '106', name: 'Basketball' },
   { id: '116', name: 'Volleyball' },
   { id: '105', name: 'Baseball' },
-  { id: '134', name: 'skiing' },
+  { id: '134', name: 'Skiing' },
   { id: '113', name: 'Cycling' },
 ]
+
 const Navbar = () => {
   return (
     <div className="sidenav">
       <ul>
         <li>
-          <Link to={'/'}> Home </Link>
+          <Link to="/">Home</Link>
         </li>
-
         {categoryList.map((category) => (
           <li key={category.id}>
             <Link to={`/category/${category.id}`}>{category.name}</Link>

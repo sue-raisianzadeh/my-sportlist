@@ -1,11 +1,11 @@
 import React from 'react'
-import { getPopularSports } from '../api/apiClient'
+import { getAllSports } from '../api/apiClient'
 import Sports from './Sports'
 
 const Landing = (props) => {
   return (
     <div>
-      <Sports search={props.search} setApi={() => getPopularSports()} />
+      <Sports search={props.search} setApi={() => getAllSports()} />
     </div>
   )
 }
