@@ -20,7 +20,7 @@ const TeamDetails = () => {
     <div className="team-details">
       <h1>{teamDetails.strTeam}</h1>
       <img
-        style={{ width: 'auto', height: 'auto' }}
+        style={{ width: '35rem', height: 'auto' }}
         src={teamDetails.strTeamBadge}
         alt={teamDetails.strTeam}
       />

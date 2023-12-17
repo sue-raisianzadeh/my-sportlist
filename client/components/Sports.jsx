@@ -12,20 +12,16 @@ const Sports = ({ search }) => {
       .then((data) => {
         let filteredData = data
         if (category) {
-          // Filter sports based on the category
           filteredData = data.filter((sport) => sport.strSport === category)
         }
         if (search) {
-          // Further filter sports based on the search input
           filteredData = filteredData.filter((sport) =>
             sport.strSport.toLowerCase().includes(search.toLowerCase())
           )
         }
         setSports(filteredData)
       })
-      .catch((error) => {
-        console.error('Error fetching sports:', error)
-      })
+      .catch((error) => console.error('Error fetching sports:', error))
   }, [category, search])
 
   return (
@@ -34,22 +30,18 @@ const Sports = ({ search }) => {
         <div key={index}>
           <h2>{sport.strSport}</h2>
           <img
-            style={{ width: 'auto', height: 'auto' }}
+            style={{ width: '82%', height: 'auto' }}
             src={sport.strSportThumb}
             alt={sport.strSport}
           />
-          <p
-            style={{
-              fontSize: '15px',
-              fontFamily: 'Corio',
-              lineHeight: '2.25rem',
-              textAlign: 'justify',
-              padding: '10px',
-            }}
+          {/* <p>{sport.strSportDescription}</p> */}
+          <Link
+            className="view-detail-link"
+            to={`/sports/${sport.idSport}`}
+            state={{ sport: sport }}
           >
-            {sport.strSportDescription}
-          </p>
-          <Link to={`/sports/${sport.idSport}`}>View Detail</Link>
+            View Detail
+          </Link>
         </div>
       ))}
     </div>

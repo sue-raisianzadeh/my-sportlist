@@ -77,17 +77,17 @@ h3{
   text-shadow: 2px 2px 5px #dacfff;
   font-family: 'Cairo','Montserrat', Georgia, 'Times New Roman', Times, serif;
   font-weight: bold;
- }
+}
 
- 
+
 .look {
-  background-color: #1d9791;
+  background-color: #76ebe5;
   justify-content: center;
   align-items: center;
-height: 2em;
-width: 80%;
-text-align: center;
-color: #e7dff7;
+  height: 2em;
+  width: 80%;
+  text-align: center;
+  color: #e7dff7;
 }
 
 
@@ -98,8 +98,8 @@ color: #e7dff7;
   flex-wrap: wrap;
   margin-left: 200px;
   padding: 1px 16px;
-
-
+  
+  
 }
 
 .list__container>div {
@@ -132,22 +132,29 @@ color: #e7dff7;
 
 /* NavBar Style */
 
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
 
+  .sidenav a {
+    text-align: center;
+    float: none;
+  }
+}
 .sidenav {
 
-  background-color: #16d7ad;
-  color: rgb(7, 6, 6);
+  background-color: #321142;
+  color: rgb(134, 76, 161);
   width: 150px;
   float: left;
   display: inline;
   margin: 0;
   padding: 0;
   width: 200px;
-  background-color: #ccfaed;
+  background-color: #b4f0eb;
   position: fixed;
   height: 100%;
   overflow: auto;
-  border-top-right-radius: 30px;
+  border-top-right-radius: 40px;
   /* border-bottom-right-radius: 80px; */
 }
 
@@ -155,21 +162,19 @@ color: #e7dff7;
 
 
 .searchForm{
-  width: 70%;
+  width: 75%;
   position: relative;
   align-items: center;
   display:flex;
-  margin: 1rem auto;
-  
+  margin: 10px auto;
 }
 
 .searchBar{
   height: 50px;
   width: 100%;
   padding:20px;
-  border:1px solid rgb(95, 128, 121);
+  border:1px solid grey;
   border-radius: 20px;
-  animation: slideout 2s ease-out; 
   font-size: 20px;
   
 }
@@ -196,13 +201,13 @@ border:none
 
 /* Active/current link */
 .sidenav a.active {
-  background-color: #7dcfbd;
+  background-color: #76c6a0;
   color: white;
 }
 
 /* Links on mouse-over */
 .sidenav a:hover:not(.active) {
-  background-color: #4aaaa2;
+  background-color: #70eac3;
   color: white;
   
 }
@@ -233,46 +238,39 @@ border:none
 
 }
 
-  /* serachBar style */
+  /* serachBar */
 
-  /* .searchForm {
-    display: flex;
+  .searchForm{
+    width: 75%;
     position: relative;
     align-items: center;
+    display:flex;
+    margin: 10px auto;
   }
-
-
-  .searchBar {
-    height: 40px;
-    width: 80%;
-    border: 1px solid grey;
+  
+  .searchBar{
+    height: 50px;
+    width: 100%;
+    padding:20px;
+    border:1px solid grey;
     border-radius: 20px;
+    font-size: 20px;
+    
   }
-
-
-  .searchBar:focus {
+  .searchBar:focus{
     outline: none;
   }
-
-  .sumbitButton {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    right: 270px;
-    background-color: transparent;
-    border: none
-  } */
-
-
-
-  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-  @media screen and (max-width: 400px) {
-
-    .sidenav a {
-      text-align: center;
-      float: none;
-    }
+  
+  .sumbitButton{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right:10px;
+  background-color: transparent;
+  border:none
   }
+
+
 
 
 
@@ -296,4 +294,74 @@ border:none
 
 .detail__container * {
   color: #fff;
+}
+
+/* Navbar and View Detail pages */
+.navbar-viewdetail__item {
+  color: #fff;
+  margin-bottom: 2.5rem;
+}
+
+.navbar-viewdetail__item img {
+  width: 300px; 
+  display: block;
+  margin: 0 auto; /* Center the image */
+}
+
+.navbar-viewdetail__item h2, .navbar-viewdetail__item p {
+  font-size: 2rem; 
+  text-align: left;
+  padding-left: 2rem; 
+}
+
+/* Hide Searchbar in Navbar and View Detail pages */
+.navbar-viewdetail__searchbar-hidden {
+  display: none;
+}
+
+
+/* Navbar and View Detail pages */
+.navbar-viewdetail__item {
+  color: #fff;
+  margin-bottom: 2.5rem;
+}
+
+.navbar-viewdetail__item img {
+  width: 300px; 
+  display: block;
+  margin: 0 auto; /* Center the image */
+}
+
+.navbar-viewdetail__item h2, .navbar-viewdetail__item p {
+  font-size: 2rem; 
+  text-align: left;
+  padding-left: 2rem; 
+}
+
+/* Hide Searchbar in Navbar and View Detail pages */
+.navbar-viewdetail__searchbar-hidden {
+  display: none;
+}
+
+/* view detail */
+
+.list__container-detail{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 20px;
+  font-size: 20px;
+  background-color: #0e524f;
+}
+.view-detail-link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.view-detail-link:hover {
+  color: rgb(66, 8, 25);
 }

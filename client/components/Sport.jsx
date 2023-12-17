@@ -1,27 +1,59 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { getSportDetailsById } from '../api/apiClient'
+import React from 'react'
+import { useLocation } from 'react-router-dom'
 
 const Sport = () => {
-  const { id } = useParams()
-  const [sportDetails, setSportDetails] = useState(null)
+  const location = useLocation()
+  const sport = location.state.sport
 
-  useEffect(() => {
-    getSportDetailsById(id)
-      .then((sports) => setSportDetails(sports))
-      .catch(console.error)
-  }, [id])
-
-  if (!sportDetails) {
+  if (!sport) {
     return <div>Loading...</div>
   }
 
-  // Adjust these fields to match the structure of your API response
   return (
-    <div className="detail__container" style={{ marginLeft: '200px' }}>
-      <h2>{sportDetails.strSport}</h2>
-      <img src={sportDetails.strSportThumb} alt={sportDetails.strSport} />
-      <p>{sportDetails.strSportDescription}</p>
+    <div
+      className="detail__container-detail"
+      style={{
+        backgroundColor: '#0e524f',
+        backgroundSize: 'cover',
+        textAlign: 'center',
+        width: '80%',
+        justifyContent: 'center',
+        margin: 'auto',
+        verticalAlign: 'center',
+      }}
+    >
+      <h2
+        style={{
+          textAlign: 'center',
+          fontSize: '4.5rem',
+          fontFamily: 'Corio',
+          lineHeight: '2.25rem',
+          padding: '6rem 0rem 1rem 0rem',
+        }}
+      >
+        {sport.strSport}
+      </h2>
+      <br />
+      <img
+        style={{ width: '40%', height: 'auto' }}
+        src={sport.strSportThumb}
+        alt={sport.strSport}
+      />
+      <br />
+      <br />
+      <p
+        style={{
+          fontSize: '2.5rem',
+          color: 'white',
+          fontFamily: 'Corio',
+          lineHeight: '4.25rem',
+          textAlign: 'justify',
+          padding: '2rem 5rem',
+          marginLeft: '15%',
+        }}
+      >
+        {sport.strSportDescription}
+      </p>
     </div>
   )
 }
