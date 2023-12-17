@@ -1,11 +1,11 @@
 // client/test/apiClient.test.js
 import request from 'superagent'
 import superagentMock from 'superagent-mock'
-import { getPopularSports } from '../apiClient'
+import { getAllSports } from '../apiClient' // Corrected function name
 
 const mockConfig = [
   {
-    pattern: 'https://www.thesportsdb.com/api/v1/json/1/all_sports.php(.*)',
+    pattern: 'https://thesportsdb.p.rapidapi.com/all_sports.php(.*)', // Corrected pattern
     fixtures: (match, params, headers) => {
       return {
         sports: [
@@ -18,7 +18,7 @@ const mockConfig = [
       return { body: data }
     },
   },
-  // i will add other mocks for getSportByCategory and getSportByID
+  // Additional mocks for getSportDetailsById and getSportsByCategory can be added here
 ]
 
 describe('apiClient tests', () => {
@@ -32,8 +32,9 @@ describe('apiClient tests', () => {
     mock.unset()
   })
 
-  test('getPopularSports returns sports data', async () => {
-    const sports = await getPopularSports()
+  test('getAllSports returns sports data', async () => {
+    // Corrected test description
+    const sports = await getAllSports()
     expect(sports).toHaveLength(2)
     expect(sports[0].name).toBe('Football')
     expect(sports[1].name).toBe('Basketball')
